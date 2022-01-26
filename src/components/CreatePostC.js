@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import context from "../context/context";
 
 const CreatePostC = () => {
-    const {posts, setPosts} = useContext(context)
+    const {posts, setPosts, setCreareBtn} = useContext(context)
     const titleRef = useRef()
     const articleRef = useRef()
     const nav = useNavigate()
@@ -15,6 +15,7 @@ const CreatePostC = () => {
             text: articleRef.current.value
         }
         setPosts([...posts, post])
+        setCreareBtn('create')
         nav('/')
     }
 
