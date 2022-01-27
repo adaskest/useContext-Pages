@@ -38,9 +38,18 @@
     border: 1px solid black;
 }
 
+.m-10 {
+    margin: 10px;
+}
+
 input {
     font-size: 20px;
     margin: 20px;
+}
+
+textarea {
+    width: 300px;
+    font-size: 16px;
 }
 
 .header {
@@ -66,21 +75,26 @@ input {
 }
 
 .box {
-    width: 400px;
-    margin-top: 100px;
+    width: 300px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 .article {
-    min-height: 200px;
+    height: fit-content;
     min-width: 300px;
     margin: 10px;
     padding: 10px;
     border: 1px solid red;
     border-radius: 10px;
     background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .likes {
@@ -98,4 +112,14 @@ input {
 
 .like:hover {
     color: red;
+}
+
+.comments {
+    min-height: 200px;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: #fff0dd;
 }

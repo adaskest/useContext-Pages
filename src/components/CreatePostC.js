@@ -14,7 +14,10 @@ const CreatePostC = () => {
             text: articleRef.current.value,
             username: loggedUser[0].userName,
             likes: [],
-            like: ''
+            like: '',
+            comments: [],
+            addComBtn: true,
+            showComBtn: true
         }
         setPosts([...posts, post])
         setPostsBtns('create')
