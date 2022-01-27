@@ -25,6 +25,8 @@ const LoginC = () => {
                 setPostsBtns('create')
                 setLogoutBtns('some')
                 setPosts(posts.map(post => {
+                    post.addComBtn = true
+                    post.showComBtn= true
                         if (post.likes.includes(user.userName)) {
                             post.like = <FaThumbsDown/>
                             return post

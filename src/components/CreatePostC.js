@@ -28,7 +28,7 @@ const CreatePostC = () => {
         <div className='d-flex column j-center a-cen'>
             <div className="box">
                 <input ref={titleRef} type="text" placeholder='Title'/>
-                <input ref={articleRef} type="text" placeholder='Article'/>
+                <textarea ref={articleRef} placeholder='Article'/>
                 <div onClick={create} className="btn">Create post</div>
             </div>
         </div>

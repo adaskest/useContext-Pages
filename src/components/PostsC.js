@@ -83,7 +83,6 @@ const PostsC = () => {
                     </div>
                 </div>
             )}
-
         </div>
     )
         ;
