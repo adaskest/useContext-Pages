@@ -14,6 +14,22 @@
     justify-content: center;
 }
 
+.j-btw {
+    justify-content: space-between;
+}
+
+.j-evenly {
+    justify-content: space-evenly;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
 .wrap {
     flex-wrap: wrap;
 }
@@ -28,6 +44,7 @@ input {
 }
 
 .header {
+    width: 100%;
     height: 100px;
     background-color: red;
     display: flex;
@@ -45,6 +62,7 @@ input {
     background-color: white;
     cursor: pointer;
     text-align: center;
+    margin: 20px;
 }
 
 .box {
@@ -63,4 +81,21 @@ input {
     border: 1px solid red;
     border-radius: 10px;
     background-color: burlywood;
+}
+
+.likes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.like {
+    cursor: pointer;
+    font-size: 25px;
+    transition: .3s;
+}
+
+.like:hover {
+    color: red;
 }

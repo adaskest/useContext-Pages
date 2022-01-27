@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 
 const RegisterC = () => {
 
-    const {setShowBtn, users, setUsers} = useContext(context)
+    const {setLoginBtns, users, setUsers} = useContext(context)
     const [error, setError] = useState('')
 
     const userNameRef = useRef()
@@ -14,7 +14,7 @@ const RegisterC = () => {
     const nav = useNavigate()
 
     useEffect(() => {
-        setShowBtn('login')
+        setLoginBtns('login')
     })
 
     function register() {

@@ -1,18 +1,19 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useNavigate} from "react-router-dom"
 import context from "../context/context";
+import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
 
 
 const LoginC = () => {
     const [error, setError] = useState('')
     const nav = useNavigate()
-    const {setShowBtn, users, setLoggedUser, setCreareBtn} = useContext(context)
+    const {setLoginBtns, users, setLoggedUser, setPostsBtns, setLogoutBtns, posts, setPosts} = useContext(context)
 
     const userNameRef = useRef()
     const pass1Ref = useRef()
 
     useEffect(() => {
-        setShowBtn('register')
+        setLoginBtns('register')
     })
 
     function login() {
@@ -20,8 +21,19 @@ const LoginC = () => {
             if (user.userName === userNameRef.current.value && user.password === pass1Ref.current.value) {
                 setError('')
                 nav('/')
-                setShowBtn('')
-                setCreareBtn('create')
+                setLoginBtns('')
+                setPostsBtns('create')
+                setLogoutBtns('some')
+                setPosts(posts.map(post => {
+                        if (post.likes.includes(user.userName)) {
+                            post.like = <FaThumbsDown/>
+                            return post
+                        } else {
+                            post.like = <FaThumbsUp/>
+                            return post
+                        }
+                    }
+                ))
                 return user
             } else {
                 return setError('Wrong UserName or Password')

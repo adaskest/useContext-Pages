@@ -8,36 +8,44 @@ import Register from "./pages/Register";
 import Posts from "./pages/Posts";
 import CreatePost from "./pages/CreatePost";
 
+
 function App() {
-    const [showBtn, setShowBtn] = useState(null)
-    const [createBtn, setCreareBtn] = useState('')
+    const [loginBtns, setLoginBtns] = useState(null)
+    const [postsBtns, setPostsBtns] = useState('')
+    const [logoutBtns, setLogoutBtns] = useState('')
     const [users, setUsers] = useState([])
     const [loggedUser, setLoggedUser] = useState('')
     const [posts, setPosts] = useState([])
 
     const props = {
-        showBtn, setShowBtn, users, setUsers,
-        posts, setPosts, loggedUser, setLoggedUser,
-        createBtn, setCreareBtn
+        loginBtns,
+        setLoginBtns,
+        users,
+        setUsers,
+        posts,
+        setPosts,
+        loggedUser,
+        setLoggedUser,
+        postsBtns,
+        setPostsBtns,
+        logoutBtns,
+        setLogoutBtns,
     }
 
+    return (<div>
+        <context.Provider value={props}>
+            <Router>
+                <Header/>
+                <Routes>
+                    <Route path='/register' element={<Register/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/' element={<Posts/>}/>
+                    <Route path='/createPost' element={<CreatePost/>}/>
+                </Routes>
+            </Router>
 
-    return (
-        <div>
-            <context.Provider value={props}>
-                <Router>
-                    <Header/>
-                    <Routes>
-                        <Route path='/register' element={<Register/>}/>
-                        <Route path='/login' element={<Login/>}/>
-                        <Route path='/' element={<Posts/>}/>
-                        <Route path='/createPost' element={<CreatePost/>}/>
-                    </Routes>
-                </Router>
-
-            </context.Provider>
-        </div>
-    );
+        </context.Provider>
+    </div>);
 }
 
 export default App;

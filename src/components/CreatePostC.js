@@ -3,19 +3,21 @@ import {useNavigate} from "react-router-dom";
 import context from "../context/context";
 
 const CreatePostC = () => {
-    const {posts, setPosts, setCreareBtn} = useContext(context)
+    const {setPostsBtns, loggedUser, posts, setPosts} = useContext(context)
     const titleRef = useRef()
     const articleRef = useRef()
     const nav = useNavigate()
 
-
     function create() {
         const post = {
             title: titleRef.current.value,
-            text: articleRef.current.value
+            text: articleRef.current.value,
+            username: loggedUser[0].userName,
+            likes: [],
+            like: ''
         }
         setPosts([...posts, post])
-        setCreareBtn('create')
+        setPostsBtns('create')
         nav('/')
     }
 
