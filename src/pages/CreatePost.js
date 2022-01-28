@@ -3,7 +3,7 @@ import CreatePostC from "../components/CreatePostC";
 
 const CreatePost = () => {
     return (
-        <div>
+        <div className='container'>
             <CreatePostC/>
         </div>
     );

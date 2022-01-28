@@ -3,7 +3,7 @@ import PostsC from "../components/PostsC";
 
 const Posts = () => {
     return (
-        <div>
+        <div className='container'>
             <PostsC/>
         </div>
     );

@@ -17,7 +17,7 @@ const CreatePostC = () => {
             like: '',
             comments: [],
             addComBtn: true,
-            showComBtn: true
+            showComBtn: true,
         }
         setPosts([...posts, post])
         setPostsBtns('create')

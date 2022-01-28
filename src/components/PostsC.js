@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import context from "../context/context";
 import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
 
@@ -9,8 +9,12 @@ const PostsC = () => {
         posts,
         loggedUser,
         setPosts,
+        setPostsCount,
     } = useContext(context)
 
+    useEffect(() => {
+        setPostsCount()
+    }, [])
 
     function countLikes(id) {
         if (!posts[id].likes.includes(loggedUser[0].userName)) {
@@ -57,25 +61,23 @@ const PostsC = () => {
                             <div onClick={() => countLikes(i)} className='like'>
                                 {post.like}
                             </div>}
-                        <p>
-                            Likes: {post.likes.length}
-                        </p>
-                        <p>
-                            Comments ({post.comments.length})
-                        </p>
+                        <p>Likes: {post.likes.length}</p>
+                        <p>Comments ({post.comments.length})</p>
                     </div>
                     <div>
-                        <div onClick={() => showAddCom(i)} className="btn">{post.addComBtn ? 'Add comment' : 'Close'}</div>
-                        <div onClick={() => showCom(i)} className="btn">{post.showComBtn ? "Show Comments": 'Hide Comments'}</div>
+                        <div onClick={() => showAddCom(i)}
+                             className="btn">{post.addComBtn ? 'Add comment' : 'Close'}</div>
+                        {post.comments.length !== 0 && <div onClick={() => showCom(i)}
+                                                            className="btn">{post.showComBtn ? "Show Comments" : 'Hide Comments'}</div>}
                     </div>
-                    <div>
+                    <div className='box2'>
                         {!post.addComBtn &&
                             <div className="box">
                                 <textarea ref={commentRef} rows={5}/>
                                 <div onClick={() => addComment(i)} className="btn">Submit</div>
                             </div>}
                         {!post.showComBtn && <div>
-                            {post.comments.map((comment, i) => <div key={i} className='comments'>
+                            {post.comments.map((comment, i) => <div key={i} className='comment'>
                                 <h3>Username: {comment.user}</h3>
                                 <p>{comment.text}</p>
                             </div>)}

@@ -3,7 +3,7 @@ import RegisterC from "../components/RegisterC";
 
 const Register = () => {
     return (
-        <div>
+        <div className='container'>
             <RegisterC/>
         </div>
     );

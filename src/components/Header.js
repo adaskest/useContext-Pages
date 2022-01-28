@@ -6,13 +6,14 @@ const Header = () => {
 
     const {
         loginBtns,
+        setLoginBtns,
         postsBtns,
         setPostsBtns,
         loggedUser,
         setLoggedUser,
-        setLoginBtns,
         logoutBtns,
-        setLogoutBtns
+        setLogoutBtns,
+        setUserPosts,
     } = useContext(context)
     const nav = useNavigate()
 
@@ -31,6 +32,7 @@ const Header = () => {
         setLoginBtns('login')
         setPostsBtns('')
         setLogoutBtns('')
+        setUserPosts([])
         nav('/login')
     }
 

@@ -2,11 +2,9 @@ import React from 'react';
 import LoginC from "../components/LoginC";
 
 const Login = () => {
-    return (
-        <div>
+    return (<div className='container'>
             <LoginC/>
-        </div>
-    );
+        </div>);
 };
 
 export default Login;
